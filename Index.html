@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KNCHR | Compensation & Reparations</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      max-width: 1400px;
+      width: 100%;
+      height: 98vh;
+      max-height: 950px;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: #0b1a33;
+      padding: 1.2rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .top-bar .brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .top-bar .brand i {
+      color: #e88a2a;
+      margin-right: 0.8rem;
+      font-size: 1.6rem;
+    }
+
+    .top-bar .tag {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.2rem;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0f1a2e 0%, #1a2d4a 60%, #2a4a6e 100%);
+      padding: 2.5rem 3.5rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232, 138, 42, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-left .subtitle {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #f5b56b;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-left h1 {
+      font-size: 4.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.05;
+    }
+
+    .hero-left h1 span {
+      color: #f5b56b;
+    }
+
+    .hero-left .tagline {
+      font-size: 1.6rem;
+      opacity: 0.85;
+      margin-top: 0.4rem;
+      font-weight: 400;
+    }
+
+    .hero-right {
+      display: flex;
+      gap: 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .number {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #f5b56b;
+    }
+
+    .hero-stat .label {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+    }
+
+    /* ===== TAGLINE ROW (3 pillars) ===== */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #f8f6f2;
+      border-bottom: 1px solid #e8e0d6;
+      flex-shrink: 0;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 1.2rem 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b1a33;
+      border-right: 1px solid #e8e0d6;
+      transition: 0.3s;
+    }
+
+    .pillar:last-child {
+      border-right: none;
+    }
+
+    .pillar:hover {
+      background: rgba(232, 138, 42, 0.06);
+    }
+
+    .pillar i {
+      color: #e88a2a;
+      font-size: 1.8rem;
+      width: 2.4rem;
+      text-align: center;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      padding: 1.8rem 3.5rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ===== TOP SECTION: Program + 3 Cards ===== */
+    .top-section {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 1.8rem;
+      flex-shrink: 0;
+      margin-bottom: 1rem;
+    }
+
+    /* Program Banner */
+    .program-banner {
+      background: linear-gradient(135deg, #faf3e8 0%, #f0e6d8 100%);
+      border-radius: 18px;
+      padding: 1.8rem 2.5rem;
+      border: 1px solid #e8ddd0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .program-banner:hover {
+      border-color: #e88a2a;
+      box-shadow: 0 4px 25px rgba(232, 138, 42, 0.1);
+    }
+
+    .program-banner .badge {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #e88a2a;
+      font-weight: 700;
+    }
+
+    .program-banner h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0b1a33;
+      margin: 0.3rem 0 0.4rem;
+    }
+
+    .program-banner p {
+      font-size: 1.3rem;
+      color: #5a5a7a;
+      font-weight: 450;
+    }
+
+    .program-banner .btn-learn {
+      margin-top: 0.8rem;
+      background: #0b1a33;
+      color: white;
+      border: none;
+      padding: 0.8rem 2.8rem;
+      border-radius: 100px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .program-banner .btn-learn:hover {
+      background: #e88a2a;
+      transform: scale(1.05);
+    }
+
+    .program-banner .btn-learn i {
+      margin-right: 0.6rem;
+    }
+
+    /* 3 Mini Cards */
+    .mini-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .mini-card {
+      background: #f8f6f2;
+      border-radius: 16px;
+      padding: 1rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      border: 1px solid #e8e0d6;
+      transition: 0.3s;
+    }
+
+    .mini-card:hover {
+      border-color: #e88a2a;
+      transform: translateX(6px);
+      box-shadow: 0 2px 15px rgba(232, 138, 42, 0.08);
+    }
+
+    .mini-card .icon-wrap {
+      width: 3.8rem;
+      height: 3.8rem;
+      background: rgba(232, 138, 42, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mini-card .icon-wrap i {
+      font-size: 1.6rem;
+      color: #e88a2a;
+    }
+
+    .mini-card .info h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0b1a33;
+    }
+
+    .mini-card .info p {
+      font-size: 1rem;
+      color: #7a7a8a;
+      font-weight: 450;
+    }
+
+    /* ===== BOTTOM SECTION: Commitment + Contact ===== */
+    .bottom-section {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* LEFT: Commitment */
+    .commitment-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #e88a2a;
+      margin-bottom: 0.6rem;
+      border-bottom: 3px solid #f0ece6;
+      padding-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .section-title i {
+      margin-right: 0.6rem;
+    }
+
+    /* EXPANDED COMMITMENT LIST - 3 columns */
+    .commitment-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem 1.2rem;
+      flex: 1;
+      align-content: start;
+    }
+
+    .commitment-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      padding: 0.35rem 0.5rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .commitment-list li:hover {
+      background: #f8f6f2;
+    }
+
+    .commitment-list li i {
+      color: #e88a2a;
+      font-size: 1.2rem;
+      width: 1.8rem;
+      text-align: center;
+    }
+
+    /* Hashtags */
+    .hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      padding-top: 0.7rem;
+      border-top: 2px solid #f0ece6;
+      flex-shrink: 0;
+    }
+
+    .hashtag {
+      background: #f8f6f2;
+      padding: 0.4rem 1.5rem;
+      border-radius: 100px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0b1a33;
+      border: 1px solid transparent;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .hashtag:hover {
+      border-color: #e88a2a;
+      background: white;
+    }
+
+    /* RIGHT: Contact Card */
+    .contact-card {
+      background: #f8f6f2;
+      border-radius: 18px;
+      padding: 1.4rem 1.8rem 1.6rem;
+      border: 1px solid #e8e0d6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.2rem;
+      flex: 1;
+      align-content: start;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .contact-item:hover {
+      background: rgba(232, 138, 42, 0.06);
+    }
+
+    .contact-item i {
+      font-size: 1.4rem;
+      color: #e88a2a;
+      width: 2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7a7a8a;
+      font-weight: 700;
+    }
+
+    .contact-item .value {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #0b1a33;
+      word-break: break-word;
+    }
+
+    .contact-item .value a {
+      color: #0b1a33;
+      text-decoration: none;
+      border-bottom: 1px dotted #d4c8b8;
+    }
+
+    .contact-item .value a:hover {
+      border-bottom-color: #e88a2a;
+      color: #e88a2a;
+    }
+
+    /* Social Row */
+    .social-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 2px solid #e8e0d6;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    .social-row a {
+      color: #3a4a5a;
+      font-size: 1.9rem;
+      transition: 0.3s;
+    }
+
+    .social-row a:hover {
+      color: #e88a2a;
+      transform: translateY(-3px);
+    }
+
+    .social-row .handle {
+      margin-left: auto;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0b1a33;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #f8f6f2;
+      border-top: 1px solid #e8e0d6;
+      padding: 1rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      font-size: 1.05rem;
+      color: #7a7a8a;
+    }
+
+    .footer a {
+      color: #7a7a8a;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer a:hover {
+      color: #e88a2a;
+    }
+
+    .footer .right {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer .right span i {
+      color: #e88a2a;
+      margin-right: 0.4rem;
+    }
+
+    /* ======================================== */
+    /* ===== RESPONSIVE ===== */
+    /* ======================================== */
+
+    @media (max-width: 1200px) {
+      .hero-left h1 { font-size: 3.2rem; }
+      .hero-stat .number { font-size: 2.5rem; }
+      .top-section { grid-template-columns: 1fr; }
+      .mini-cards { grid-template-columns: repeat(3, 1fr); }
+      .bottom-section { grid-template-columns: 1fr; }
+      .commitment-list { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .pillar { font-size: 1.2rem; }
+    }
+
+    @media (max-width: 1024px) {
+      .top-bar {
+        padding: 0.8rem 1.8rem;
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+      }
+      .top-bar .brand { font-size: 1.2rem; }
+      .top-bar .tag { font-size: 0.95rem; }
+      .hero {
+        padding: 1.6rem 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        min-height: auto;
+      }
+      .hero-left h1 { font-size: 2.8rem; }
+      .hero-left .tagline { font-size: 1.2rem; }
+      .hero-left .subtitle { font-size: 1rem; }
+      .hero-right {
+        width: 100%;
+        justify-content: space-around;
+        gap: 1.5rem;
+      }
+      .hero-stat .number { font-size: 2rem; }
+      .hero-stat .label { font-size: 0.85rem; }
+      .pillars {
+        grid-template-columns: 1fr;
+        border-bottom: none;
+      }
+      .pillar {
+        border-right: none;
+        border-bottom: 1px solid #e8e0d6;
+        padding: 0.8rem;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+      .pillar:last-child { border-bottom: none; }
+      .main-content { padding: 1rem 1.8rem 1rem; }
+      .top-section { grid-template-columns: 1fr; }
+      .mini-cards { grid-template-columns: 1fr; }
+      .program-banner { padding: 1.2rem 1.5rem; }
+      .program-banner h2 { font-size: 1.8rem; }
+      .program-banner p { font-size: 1rem; }
+      .program-banner .btn-learn { font-size: 1.1rem; padding: 0.6rem 2rem; }
+      .bottom-section { grid-template-columns: 1fr; }
+      .commitment-list { grid-template-columns: 1fr 1fr; }
+      .commitment-list li { font-size: 1rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item .value { font-size: 0.95rem; }
+      .contact-item i { font-size: 1.1rem; }
+      .section-title { font-size: 1.1rem; }
+      .footer {
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.7rem 1.8rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      .footer .right { flex-wrap: wrap; justify-content: center; }
+      .social-row { flex-wrap: wrap; justify-content: center; }
+      .social-row .handle { margin-left: 0; }
+      .hashtag { font-size: 0.85rem; padding: 0.25rem 1rem; }
+    }
+
+    @media (max-width: 768px) {
+      .card { max-height: 98vh; }
+      .hero-left h1 { font-size: 2.2rem; }
+      .hero-left .subtitle { font-size: 0.85rem; }
+      .hero-left .tagline { font-size: 0.95rem; }
+      .hero-stat .number { font-size: 1.6rem; }
+      .hero-stat .label { font-size: 0.7rem; }
+      .pillar { font-size: 0.9rem; padding: 0.6rem; }
+      .pillar i { font-size: 1.2rem; width: 1.6rem; }
+      .program-banner h2 { font-size: 1.4rem; }
+      .program-banner .btn-learn { font-size: 0.95rem; padding: 0.5rem 1.6rem; }
+      .program-banner p { font-size: 0.85rem; }
+      .mini-card { padding: 0.7rem 1rem; gap: 0.8rem; }
+      .mini-card .icon-wrap { width: 2.6rem; height: 2.6rem; }
+      .mini-card .icon-wrap i { font-size: 1.1rem; }
+      .mini-card .info h4 { font-size: 0.95rem; }
+      .mini-card .info p { font-size: 0.75rem; }
+      .section-title { font-size: 0.95rem; }
+      .commitment-list { grid-template-columns: 1fr; }
+      .commitment-list li { font-size: 0.85rem; }
+      .contact-item .value { font-size: 0.8rem; }
+      .contact-item .label { font-size: 0.6rem; }
+      .contact-item i { font-size: 0.9rem; width: 1.4rem; }
+      .hashtag { font-size: 0.7rem; padding: 0.2rem 0.9rem; }
+      .social-row a { font-size: 1.3rem; }
+      .social-row .handle { font-size: 0.8rem; }
+      .footer { font-size: 0.7rem; }
+    }
+
+    @media (max-height: 750px) {
+      .hero {
+        padding: 1rem 1.8rem;
+        min-height: auto;
+      }
+      .hero-left h1 { font-size: 2rem; }
+      .hero-left .tagline { font-size: 0.95rem; }
+      .hero-left .subtitle { font-size: 0.8rem; }
+      .hero-stat .number { font-size: 1.5rem; }
+      .hero-stat .label { font-size: 0.65rem; }
+      .main-content { padding: 0.7rem 1.8rem 0.8rem; }
+      .pillar { font-size: 0.85rem; padding: 0.5rem; }
+      .pillar i { font-size: 1rem; width: 1.4rem; }
+      .program-banner { padding: 0.9rem 1.2rem; }
+      .program-banner h2 { font-size: 1.3rem; }
+      .program-banner p { font-size: 0.85rem; }
+      .program-banner .btn-learn { font-size: 0.85rem; padding: 0.4rem 1.6rem; margin-top: 0.4rem; }
+      .program-banner .badge { font-size: 0.7rem; }
+      .top-section { margin-bottom: 0.5rem; gap: 0.8rem; }
+      .mini-card { padding: 0.5rem 0.8rem; gap: 0.8rem; }
+      .mini-card .icon-wrap { width: 2.2rem; height: 2.2rem; }
+      .mini-card .icon-wrap i { font-size: 0.95rem; }
+      .mini-card .info h4 { font-size: 0.8rem; }
+      .mini-card .info p { font-size: 0.65rem; }
+      .section-title { font-size: 0.85rem; margin-bottom: 0.3rem; padding-bottom: 0.3rem; }
+      .commitment-list li { font-size: 0.8rem; padding: 0.2rem 0.3rem; gap: 0.5rem; }
+      .commitment-list li i { font-size: 0.85rem; width: 1.2rem; }
+      .commitment-list { gap: 0.3rem 1rem; }
+      .contact-card { padding: 0.8rem 1rem 1rem; }
+      .contact-item { padding: 0.15rem 0.2rem; gap: 0.5rem; }
+      .contact-item i { font-size: 0.9rem; width: 1.2rem; }
+      .contact-item .value { font-size: 0.75rem; }
+      .contact-item .label { font-size: 0.5rem; }
+      .hashtag { font-size: 0.65rem; padding: 0.15rem 0.7rem; }
+      .social-row { margin-top: 0.3rem; padding-top: 0.3rem; gap: 0.8rem; }
+      .social-row a { font-size: 1.2rem; }
+      .social-row .handle { font-size: 0.8rem; }
+      .footer { font-size: 0.65rem; padding: 0.5rem 1.8rem; }
+    }
+
+    @media (max-height: 650px) {
+      .hero-left h1 { font-size: 1.6rem; }
+      .hero-left .subtitle { font-size: 0.7rem; letter-spacing: 1.5px; }
+      .hero-left .tagline { display: none; }
+      .hero-stat .number { font-size: 1.2rem; }
+      .hero-stat .label { font-size: 0.55rem; }
+      .pillar { font-size: 0.7rem; padding: 0.3rem; gap: 0.4rem; }
+      .pillar i { font-size: 0.85rem; width: 1.2rem; }
+      .program-banner h2 { font-size: 1rem; }
+      .program-banner p { display: none; }
+      .program-banner .btn-learn { font-size: 0.7rem; padding: 0.25rem 1.2rem; }
+      .program-banner .badge { font-size: 0.55rem; }
+      .mini-card .info p { display: none; }
+      .mini-card .info h4 { font-size: 0.7rem; }
+      .mini-card .icon-wrap { width: 1.8rem; height: 1.8rem; }
+      .mini-card .icon-wrap i { font-size: 0.75rem; }
+      .commitment-list li { font-size: 0.6rem; padding: 0.1rem 0.2rem; }
+      .commitment-list li i { font-size: 0.6rem; width: 1rem; }
+      .commitment-list { gap: 0.1rem 0.5rem; }
+      .contact-item .value { font-size: 0.6rem; }
+      .contact-item i { font-size: 0.7rem; width: 1rem; }
+      .contact-item .label { font-size: 0.45rem; }
+      .section-title { font-size: 0.7rem; }
+      .hashtag { font-size: 0.5rem; padding: 0.1rem 0.5rem; }
+      .social-row a { font-size: 0.95rem; }
+      .social-row .handle { font-size: 0.6rem; }
+      .footer { font-size: 0.5rem; padding: 0.3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+      <span class="brand"><i class="fas fa-gavel"></i> Kenya National Commission on Human Rights</span>
+      <span class="tag">Compensation &amp; Reparations</span>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="hero-left">
+        <div class="subtitle">Compensation &amp; Reparations</div>
+        <h1>Restoring <span>Dignity</span></h1>
+        <div class="tagline">Upholding Human Rights · Ensuring Accountability</div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat">
+          <div class="number">100+</div>
+          <div class="label">Cases Resolved</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">50+</div>
+          <div class="label">Communities Reached</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number">10+</div>
+          <div class="label">Years of Service</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== 3 PILLARS ===== -->
+    <div class="pillars">
+      <div class="pillar"><i class="fas fa-hand-holding-heart"></i> Restoring Dignity</div>
+      <div class="pillar"><i class="fas fa-scale-balanced"></i> Upholding Human Rights</div>
+      <div class="pillar"><i class="fas fa-check-circle"></i> Ensuring Accountability</div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+
+      <!-- TOP SECTION: Program + 3 Cards -->
+      <div class="top-section">
+        <div class="program-banner">
+          <span class="badge"><i class="fas fa-flag"></i> KNCHR Program</span>
+          <h2>Compensation &amp; Reparations</h2>
+          <p>Supporting victims &amp; survivors through justice and healing</p>
+          <a href="#" class="btn-learn"><i class="fas fa-arrow-right"></i> Learn More</a>
+        </div>
+        <div class="mini-cards">
+          <div class="mini-card">
+            <div class="icon-wrap"><i class="fas fa-users"></i></div>
+            <div class="info">
+              <h4>Community Support</h4>
+              <p>Victim-centered reparations</p>
+            </div>
+          </div>
+          <div class="mini-card">
+            <div class="icon-wrap"><i class="fas fa-gavel"></i></div>
+            <div class="info">
+              <h4>Legal Support</h4>
+              <p>Legal &amp; psychosocial aid</p>
+            </div>
+          </div>
+          <div class="mini-card">
+            <div class="icon-wrap"><i class="fas fa-handshake"></i></div>
+            <div class="info">
+              <h4>Healing &amp; Reconciliation</h4>
+              <p>Community healing programs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM SECTION: Commitment + Contact -->
+      <div class="bottom-section">
+
+        <!-- LEFT: Commitment (EXPANDED) -->
+        <div class="commitment-box">
+          <div class="section-title"><i class="fas fa-flag"></i> Our Commitment</div>
+          <ul class="commitment-list">
+            <li><i class="fas fa-user-check"></i> Victim-centered reparations</li>
+            <li><i class="fas fa-gavel"></i> Legal &amp; psychosocial support</li>
+            <li><i class="fas fa-handshake"></i> Community healing &amp; reconciliation</li>
+            <li><i class="fas fa-chart-line"></i> Monitoring &amp; follow-up</li>
+            <li><i class="fas fa-shield-alt"></i> Protection of vulnerable groups</li>
+            <li><i class="fas fa-people-arrows"></i> Community engagement &amp; awareness</li>
+            <li><i class="fas fa-file-alt"></i> Documentation &amp; evidence gathering</li>
+            <li><i class="fas fa-hand-holding-usd"></i> Financial compensation assistance</li>
+            <li><i class="fas fa-heart"></i> Psychosocial counseling &amp; support</li>
+            <li><i class="fas fa-balance-scale-right"></i> Legal representation &amp; advocacy</li>
+            <li><i class="fas fa-undo-alt"></i> Restorative justice programs</li>
+            <li><i class="fas fa-bullhorn"></i> Policy advocacy &amp; reform</li>
+          </ul>
+          <div class="hashtags">
+            <span class="hashtag">#ReparationsForAll</span>
+            <span class="hashtag">#NoVictimLeftBehind</span>
+            <span class="hashtag">#ReparationsSihsanNihaki</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Contact -->
+        <div class="contact-card">
+          <div class="section-title" style="border-bottom-color:transparent; margin-bottom:0.4rem;"><i class="fas fa-phone"></i> Contact</div>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <div class="label">Office</div>
+                <div class="value">CVS Plaza, Nairobi</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <div class="label">Tel</div>
+                <div class="value">+254 020-3969000</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <div class="label">WhatsApp</div>
+                <div class="value">+254 798 849871</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-volume"></i>
+              <div>
+                <div class="label">Toll Free</div>
+                <div class="value">0800 720 627</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <div class="label">Email</div>
+                <div class="value"><a href="mailto:reparations@knchr.org">reparations@knchr.org</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-globe"></i>
+              <div>
+                <div class="label">Website</div>
+                <div class="value"><a href="#">knchr.org</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <span class="handle">@HakiKNCHR</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+      <span><i class="fas fa-copyright"></i> Kenya National Commission on Human Rights</span>
+      <div class="right">
+        <span><i class="fas fa-globe-africa"></i> knchr.org</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // ===== LEARN MORE BUTTON =====
+      const learnBtn = document.querySelector('.btn-learn');
+      if (learnBtn) {
+        let blinkInterval = null;
+        let count = 0;
+
+        function startBlink() {
+          let colors = ['#e88a2a', '#0b1a33'];
+          let idx = 0;
+          if (blinkInterval) clearInterval(blinkInterval);
+          blinkInterval = setInterval(() => {
+            if (count >= 6) {
+              clearInterval(blinkInterval);
+              blinkInterval = null;
+              learnBtn.style.background = '#0b1a33';
+              learnBtn.style.color = 'white';
+              return;
+            }
+            learnBtn.style.background = colors[idx % 2];
+            learnBtn.style.color = 'white';
+            idx++;
+            count++;
+          }, 400);
+        }
+
+        setTimeout(startBlink, 500);
+
+        learnBtn.addEventListener('mouseenter', function() {
+          if (blinkInterval) { clearInterval(blinkInterval);
+            blinkInterval = null; }
+          this.style.background = '#e88a2a';
+          this.style.color = 'white';
+        });
+
+        learnBtn.addEventListener('mouseleave', function() {
+          count = 0;
+          this.style.background = '#0b1a33';
+          setTimeout(startBlink, 400);
+        });
+
+        learnBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.style.background = 'white';
+          this.style.color = '#e88a2a';
+          setTimeout(() => {
+            this.style.background = '#e88a2a';
+            this.style.color = 'white';
+          }, 200);
+          document.querySelector('.contact-card').scrollIntoView({ behavior: 'smooth',
+            block: 'center' });
+        });
+      }
+
+      // ===== CONTACT HEADING PULSE =====
+      const contactTitle = document.querySelector('.contact-card .section-title');
+      if (contactTitle) {
+        let pulseInterval = null;
+        let dir = 1;
+        let opacity = 1;
+
+        function startPulse() {
+          if (pulseInterval) clearInterval(pulseInterval);
+          pulseInterval = setInterval(() => {
+            opacity += dir * 0.04;
+            if (opacity >= 1) { opacity = 1;
+              dir = -1; } else if (opacity <= 0.4) { opacity = 0.4;
+              dir = 1; }
+            contactTitle.style.opacity = opacity;
+          }, 120);
+        }
+
+        setTimeout(startPulse, 800);
+
+        contactTitle.addEventListener('mouseenter', function() {
+          if (pulseInterval) { clearInterval(pulseInterval);
+            pulseInterval = null; }
+          this.style.opacity = '1';
+          this.style.color = '#d4af37';
+        });
+
+        contactTitle.addEventListener('mouseleave', function() {
+          this.style.color = '#e88a2a';
+          setTimeout(startPulse, 500);
+        });
+      }
+
+      // ===== HASHTAG COPY =====
+      document.querySelectorAll('.hashtag').forEach(tag => {
+        tag.addEventListener('click', function() {
+          const text = this.textContent.trim();
+          navigator.clipboard.writeText(text).then(() => {
+            const orig = this.style.background;
+            this.style.background = '#e88a2a';
+            this.style.color = 'white';
+            setTimeout(() => {
+              this.style.background = orig;
+              this.style.color = '#0b1a33';
+            }, 400);
+          });
+        });
+      });
+
+      // ===== EMAIL COPY =====
+      const emailLink = document.querySelector('.contact-item .value a[href^="mailto:"]');
+      if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          const email = this.textContent.trim();
+          navigator.clipboard.writeText(email).then(() => {
+            const toast = document.createElement('div');
+            toast.textContent = '📧 Email copied!';
+            Object.assign(toast.style, {
+              position: 'fixed',
+              bottom: '2rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: '#0b1a33',
+              color: 'white',
+              padding: '0.5rem 1.5rem',
+              borderRadius: '50px',
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.85rem',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
+              zIndex: '9999',
+              opacity: '0',
+              transition: 'opacity 0.3s ease'
+            });
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => toast.style.opacity = '1');
+            setTimeout(() => {
+              toast.style.opacity = '0';
+              setTimeout(() => toast.remove(), 300);
+            }, 2000);
+          });
+        });
+      }
+
+      console.log('%c🇰🇪 KNCHR — Compensation & Reparations', 'font-size:16px; font-weight:bold; color:#0b1a33;');
+    });
+  </script>
+
+</body>
+</html>
